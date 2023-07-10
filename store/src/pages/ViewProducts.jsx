@@ -59,7 +59,7 @@ export default function ViewProducts() {
                             <tr key={index}>
                                 <td>{index + 1}</td>
                                 <td>{product.name}</td>
-                                <td><QRCode title="SKU" value={`http://localhost:3000/view_product/${product.SKU}`} /></td>
+                                <td><QRCode title="SKU" value={`http://5.183.9.124:3005/view_product/${product.SKU}`} /></td>
                             </tr>
                         ))}
                     </tbody>

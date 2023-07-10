@@ -1,0 +1,34 @@
+version: "3.1"
+services:
+  back_store-app:
+    build:
+      context: ./backend_store
+      dockerfile: Dockerfile
+    container_name: back_store_app_container
+    # image: a7medabdo6/care_managment
+    volumes:
+      - ./backend_store/src:/back_store_App/src:ro
+    ports:
+      - "7002:7002"
+  react:
+    build:
+      context: ./store
+      dockerfile: Dockerfile
+    container_name: React_front_store_container
+    volumes:
+      - ./store/src:/React_front_store/src:ro
+    ports:
+      - "3005:3005"
+    environment:
+      - NODE_ENV=production
+    restart: always
+
+  # nginx:
+  #   build:
+  #     context: ./
+  #     dockerfile: Dockerfile.nginx
+  #   # volumes:
+  #   #     - ./Care_Frontend/build:/usr/share/nginx/html:ro
+  #   ports:
+  #     - 82:80
+  #   restart: always
